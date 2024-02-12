@@ -1,0 +1,14 @@
+<div class="input-group product-search">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search Product"
+    [(ngModel)]="searchItemTitle"
+  />
+  <button class="btn btn-primary" type="button" (click)="onSearch()">
+    Search
+  </button>
+  <button class="btn btn-secondary" type="button" (click)="onRemoveSearch()">
+    x
+  </button>
+</div>

@@ -1,0 +1,12 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="product-details container">
+  <div class="row">
+    <div class="col-lg-6">
+      <app-product-item [product]="product"></app-product-item>
+    </div>
+    <div class="product-description col-lg-6">
+      <h4>{{ product.title }}</h4>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+</div>
