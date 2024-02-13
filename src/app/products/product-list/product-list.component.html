@@ -1,13 +1,13 @@
 <div class="text-center">
   <div class="row align-items-center">
     <app-product-search (search)="onSearchProduct($event)"></app-product-search>
-    <div class="col-lg-4 item" *ngFor="let product of products">
+    <div class="col-lg-4 item" *ngFor="let product of products$ | async">
       <app-product-item [product]="product"></app-product-item>
       <div class="product-description">
         <h4>{{ product.title }}</h4>
         <p>{{ product.description }}</p>
         <p>Likes: {{ product.likes }}</p>
-        <button class="btn btn-secondary" (click)="removeProduct(product.id)">Remove</button>
+        <button class="btn btn-secondary" (click)="deleteProduct(product.id)">Remove</button>
       </div>
     </div>
   </div>

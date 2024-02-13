@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { Product } from '../../model/product.model.js'
 import { products } from '../../data/product.data.js'
 
@@ -6,30 +7,39 @@ import { products } from '../../data/product.data.js'
   providedIn: 'root'
 })
 export class ProductService {
-  private products: Product[] = products
+  // private products: Product[] = products
+  private products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(products);
 
-  constructor() { }
+  constructor() {
+    //Initial value for the product$ observable is set to static product array
+    this.products$.next(products)
+   }
 
-  getProducts(): Product[] {
-    return this.products
+  getProducts(): Observable<Product[]> {
+    return this.products$.asObservable();
   }
 
-  getProductsByTitle(searchItemTitle: string): any[] {
+  getProductsByTitle(searchItemTitle: string): Observable<any[]> {
     if (!searchItemTitle) {
-      return this.products;
+      return this.products$.asObservable();
     }
-    return this.products.filter(item => item.title.toLowerCase().includes(searchItemTitle.toLowerCase()))
+    const filteredProducts = this.products$.value.filter(item => item.title.toLowerCase().includes(searchItemTitle.toLowerCase()));
+    return of(filteredProducts); //wrapper product array in an observable
   }
 
   getProductById(productId: number) {
-    return this.products.find(product => product.id === productId)
+    const product = this.products$.value.find(product => product.id === productId)
+    return of(product);
   } 
 
-  addProduct(product: Product) {
-    this.products = [...this.products, product];
+  addProduct(newProduct: Product): void {
+    const products = [...this.products$.value, newProduct];
+    this.products$.next(products);
   }
+  
 
-  removeProduct(productId: number) {
-    return this.products.filter(item => item.id !== productId);
+  deleteProduct(productId: number): void {
+    const products = this.products$.value.filter((product) => product.id !== productId);
+    this.products$.next(products);
   }
 }

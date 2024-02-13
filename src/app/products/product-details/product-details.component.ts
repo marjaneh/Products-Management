@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable} from 'rxjs';
 import { Product } from '../../model/product.model';
 import { ProductService } from '../../services/product-service/product.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,14 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('addProductModal') addProductModal: any;
-  product: Product
+  product$: Observable<Product>
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
-    // const productId = parseInt(this.route.snapshot.paramMap.get('id'));
     const productId = parseInt(this.route.snapshot.params['id']);
-    this.product = this.productService.getProductById(productId);
+    this.product$ = this.productService.getProductById(productId);
 
     // debugger
   }

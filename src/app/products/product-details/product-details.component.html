@@ -2,14 +2,14 @@
 <div class="product-details container">
   <div class="row">
     <div class="col-lg-6">
-      <app-product-item [product]="product"></app-product-item>
+      <app-product-item [product]="product$ | async"></app-product-item>
     </div>
     <div class="product-description col-lg-6">
-      <h4>{{ product.title }}</h4>
-      <p>{{ product.description }}</p>
-      <p>Category: {{ product.category }}</p>
-      <p>Likes: {{ product.likes }}</p>
+      <h4>{{ (product$ | async)?.title }}</h4>
+      <p>{{ (product$ | async)?.description }}</p>
+      <p>Category: {{ (product$ | async)?.category }}</p>
+      <p>Likes: {{ (product$ | async)?.likes }}</p>
     </div>
   </div>
-  <button type="button" class="open-modal btn btn-primary" (click)="openModal()">Add Product</button>
+  <!-- <button type="button" class="open-modal btn btn-primary" (click)="openModal()">Add Product</button> -->
 </div>
