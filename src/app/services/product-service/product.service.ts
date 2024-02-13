@@ -20,4 +20,16 @@ export class ProductService {
     }
     return this.products.filter(item => item.title.toLowerCase().includes(searchItemTitle.toLowerCase()))
   }
+
+  getProductById(productId: number) {
+    return this.products.find(product => product.id === productId)
+  } 
+
+  addProduct(product: Product) {
+    this.products = [...this.products, product];
+  }
+
+  removeProduct(productId: number) {
+    return this.products.filter(item => item.id !== productId);
+  }
 }

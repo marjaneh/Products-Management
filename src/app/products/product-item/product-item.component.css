@@ -1,14 +1,12 @@
-
-
 img {
   height: auto;
   width: 300px;
 }
 
 img:hover {
-  transform: scale(1.5); /*Zoom in by 50%*/
+  transform: scale(1.2); /*Zoom in by 50%*/
 }
 
 p {
-    font-size:small
+  font-size: small;
 }

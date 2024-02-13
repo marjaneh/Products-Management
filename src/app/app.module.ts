@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductSearchComponent } from './products/product-search/product-search.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     HeaderComponent,
     ProductSearchComponent,
     SidebarComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,
