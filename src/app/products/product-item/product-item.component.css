@@ -2,7 +2,11 @@
 
 img {
   height: auto;
-  width: 30%;
+  width: 300px;
+}
+
+img:hover {
+  transform: scale(1.5); /*Zoom in by 50%*/
 }
 
 p {
