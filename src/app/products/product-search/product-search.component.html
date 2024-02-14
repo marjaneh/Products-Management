@@ -3,12 +3,13 @@
     type="text"
     class="form-control"
     placeholder="Search Product"
-    [(ngModel)]="searchItemTitle"
+    [(ngModel)]="searchQuery"
+    (keydown.enter)="performSearch()"
   />
-  <button class="btn btn-primary" type="button" (click)="onSearch()">
+  <button class="btn btn-primary" type="button" (click)="performSearch()">
     Search
   </button>
-  <button class="btn btn-secondary" type="button" (click)="onRemoveSearch()">
+  <button class="btn btn-secondary" type="button" (click)="removeSearchQuery()">
     x
   </button>
 </div>

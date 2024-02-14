@@ -7,15 +7,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ProductSearchComponent {
   @Output() search = new EventEmitter<string>();
-  searchItemTitle: string = '';
+  searchQuery: string = '';
 
-  onSearch(): void {
+  performSearch(): void {
     // console.log("Searching button clicked...")
-    this.search.emit(this.searchItemTitle);
+    this.search.emit(this.searchQuery);
   }
 
-  onRemoveSearch(): void {
-    this.searchItemTitle = '';
+  removeSearchQuery(): void {
+    this.searchQuery = '';
     this.search.emit('');
   }
 }
