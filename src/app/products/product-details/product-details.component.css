@@ -7,6 +7,8 @@
   margin-top: 70px;
 }
 
-.open-modal {
-    float:right;
+.add-button-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 }

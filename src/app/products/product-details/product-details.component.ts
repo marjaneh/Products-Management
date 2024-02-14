@@ -22,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
 
     // debugger
   }
-  openModal(): void {
+  addProduct(): void {
     this.addProductModal.show();
   }
 
