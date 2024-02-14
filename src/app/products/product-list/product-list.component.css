@@ -1,6 +1,10 @@
-/* .product-description {
-    width:40%;
-} */
+.product-description {
+    margin: 20px;
+}
+
+.product-description p {
+    font-stretch: condensed;
+}
 
 .item {
     margin-top:50px;

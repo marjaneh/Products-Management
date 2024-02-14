@@ -36,7 +36,6 @@ export class ProductService {
     const products = [...this.products$.value, newProduct];
     this.products$.next(products);
   }
-  
 
   deleteProduct(productId: number): void {
     const products = this.products$.value.filter((product) => product.id !== productId);

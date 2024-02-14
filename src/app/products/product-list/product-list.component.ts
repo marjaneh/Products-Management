@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable} from 'rxjs';
 import { Product } from '../../model/product.model';
 import { ProductService } from '../../services/product-service/product.service';
-
 
 @Component({
   selector: 'app-product-list',
@@ -10,17 +8,18 @@ import { ProductService } from '../../services/product-service/product.service';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit {
-  products$: Observable<Product[]>;
+  products$: Product[];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts(); 
-    console.log(`onSearchProduct ${this.products$}`);
+    this.productService.getProducts()
+    .subscribe(result => this.products$ = result); 
   }
 
   onSearchProduct(searchItemTitle): void {
-    this.products$ = this.productService.getProductsByTitle(searchItemTitle)
+    this.productService.getProductsByTitle(searchItemTitle)
+    .subscribe(result => this.products$ = result);
     // console.log(`onSearchProduct ${this.products$}`);
   }
 

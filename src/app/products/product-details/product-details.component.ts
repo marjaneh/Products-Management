@@ -11,13 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('addProductModal') addProductModal: any;
-  product$: Observable<Product>
+  product$: Product
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
     const productId = parseInt(this.route.snapshot.params['id']);
-    this.product$ = this.productService.getProductById(productId);
+    this.productService.getProductById(productId)
+    .subscribe(result => this.product$ = result);
 
     // debugger
   }

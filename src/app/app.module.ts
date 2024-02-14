@@ -13,6 +13,8 @@ import { ProductSearchComponent } from './products/product-search/product-search
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingComponent } from './rating/rating.component';
 
 
 @NgModule({
@@ -25,12 +27,14 @@ import { ProductCreateComponent } from './products/product-create/product-create
     ProductSearchComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
