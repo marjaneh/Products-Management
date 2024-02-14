@@ -4,7 +4,7 @@ img {
 }
 
 img:hover {
-  transform: scale(1.2); /*Zoom in by 50%*/
+  transform: scale(1.2); /*Zoom in by 20%*/
 }
 
 p {
