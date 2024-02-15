@@ -37,8 +37,6 @@ export class ProductListComponent implements OnInit {
     .subscribe(result => {
       this.products$ = result
     });
-    // .subscribe(result => this.products$ = result);
-    // console.log(`onSearchProduct ${this.products$}`);
   }
 
   deleteProduct(productId: number): void {
