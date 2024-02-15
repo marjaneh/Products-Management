@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 import { Product } from '../../model/product.model';
 import { ProductService } from '../../services/product-service/product.service';
 
@@ -14,12 +15,29 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts()
-    .subscribe(result => this.products$ = result); 
+    .pipe(
+      catchError(error => {  //handling error using operators/pipeline
+        console.error('Error:', error);
+        return [];
+      })
+    )
+    .subscribe(result => {
+      this.products$ = result
+    });
   }
 
   onSearchProduct(searchItemTitle): void {
     this.productService.getProductsByTitle(searchItemTitle)
-    .subscribe(result => this.products$ = result);
+    .pipe(
+      catchError(error => { 
+        console.error('Error:', error);
+        return [];
+      })
+    )
+    .subscribe(result => {
+      this.products$ = result
+    });
+    // .subscribe(result => this.products$ = result);
     // console.log(`onSearchProduct ${this.products$}`);
   }
 
