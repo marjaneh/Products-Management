@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
-  @ViewChild('addProductModal') addProductModal: any;
+  // @ViewChild('addProductModal') addProductModal: any;
   product$: Product
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -22,8 +22,8 @@ export class ProductDetailsComponent implements OnInit {
 
     // debugger
   }
-  addProduct(): void {
-    this.addProductModal.show();
-  }
+  // addProduct(): void {
+  //   this.addProductModal.show();
+  // }
 
 }

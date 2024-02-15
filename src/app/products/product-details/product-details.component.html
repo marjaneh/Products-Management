@@ -9,13 +9,17 @@
       <p>{{ product$?.description }}</p>
       <p>Category: {{ product$?.category }}</p>
       <app-rating [rating]="product$?.likes"></app-rating>
-
     </div>
   </div>
-  <!-- <button type="button" class="open-modal btn btn-primary" (click)="openModal()">Add Product</button> -->
 </div>
 <div class="add-button-container">
-  <button type="button" class="add-button btn btn-primary" (click)="addProduct()">
+  <button
+    type="button"
+    class="add-button btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#productModal"
+  >
     Add Product
   </button>
+  <app-modal></app-modal>
 </div>

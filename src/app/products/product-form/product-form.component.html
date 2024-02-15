@@ -1,0 +1,21 @@
+<form  [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title">
+  </div>
+  <div>
+    <label for="titdescriptionle">Description:</label>
+    <input type="text" id="description" formControlName="description">
+  </div>
+  <div>
+    <label for="category">Category:</label>
+    <select id="category" formControlName="category">
+      <option value="">Select a category</option>
+      <option value="Communication">Communication</option>
+      <option value="Digital">Digital</option>
+      <option value="Office">Office</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Jewelry">Jewelry</option>
+    </select>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+<div
+  class="modal fade"
+  id="productModal"
+  tabindex="-1"
+  aria-labelledby="productModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          {{ product ? "Update Product" : "Create Product" }}
+        </h4>
+        <button type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-content">
+        <app-product-form [product]="product"></app-product-form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,7 +21,7 @@ export const products: Product[] = [
         title: "laptop",
         description: "Most laptops are designed to have all of the functionality of a desktop computer, which means they can generally run the same software and open the same types of files.",
         productImage: laptop,
-        category: 'office',
+        category: 'Office',
         likes: 3
     },
     {
@@ -29,7 +29,7 @@ export const products: Product[] = [
         title: "camera",
         description: "This device for recording an image of an object on a light-sensitive surface",
         productImage: camera,
-        category: 'digital',
+        category: 'Digital',
         likes: 1
     },
     {
@@ -37,7 +37,7 @@ export const products: Product[] = [
         title: "denim",
         description: "This is a type of woven twill fabric, which is made from cotton.",
         productImage: denim,
-        category: 'cloths',
+        category: 'Clothing',
         likes: 0
     },
     {
@@ -45,7 +45,7 @@ export const products: Product[] = [
         title: "shoes",
         description: "This is an item of footwear intended to protect and comfort the human foot.",
         productImage: shoes,
-        category: 'cloths',
+        category: 'Clothing',
         likes: 7
     },
     {

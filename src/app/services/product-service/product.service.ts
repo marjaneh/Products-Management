@@ -12,8 +12,8 @@ export class ProductService {
 
   constructor() {
     //Initial value for the product$ observable is set to static product array
-    this.products$.next(products)
-   }
+    // this.products$.next(products)
+  }
 
   getProducts(): Observable<Product[]> {
     return this.products$.asObservable();
@@ -30,11 +30,17 @@ export class ProductService {
   getProductById(productId: number) {
     const product = this.products$.value.find(product => product.id === productId)
     return of(product);
-  } 
+  }
 
   addProduct(newProduct: Product): void {
     const products = [...this.products$.value, newProduct];
     this.products$.next(products);
+  }
+
+  updateProduct(updatedProduct: Product): void {
+    const updatedProducts = this.products$.value
+      .map((product) => product.id === updatedProduct.id ? { ...updatedProduct } : product)
+    this.products$.next(updatedProducts);
   }
 
   deleteProduct(productId: number): void {
